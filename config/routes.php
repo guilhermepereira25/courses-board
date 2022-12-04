@@ -10,7 +10,8 @@ use Alura\Cursos\Controllers\{
     UpdateController, 
     LoginController,
     CadastroFormController,
-    LogoutController};
+    LogoutController,
+    GetCourses};
 
 $rotas = [
     '/courses-admin/public/listar-cursos' => ListCoursesController::class,
@@ -23,6 +24,7 @@ $rotas = [
     '/courses-admin/public/cadastro' => CadastroFormController::class,
     '/courses-admin/public/realiza-cadastro' => CadastroController::class,
     '/courses-admin/public/logout' => LogoutController::class,
+    '/courses-admin/public/getCourses' => GetCourses::class,
 ];
 
 return $rotas;
