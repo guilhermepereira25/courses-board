@@ -47,33 +47,6 @@ class CadastroController implements RequestHandlerInterface, IPasswordValidate
         return $response;
     }
 
-    // public function processRequest(): void
-    // {
-    //     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-
-    //     $senha = filter_input(INPUT_POST, 'senha');
-
-    //     $validatePass = $this->validatePass($senha);
-
-    //     if ($validatePass) {
-    //         $hash = password_hash($validatePass, PASSWORD_DEFAULT);
-    //     } else {
-    //         echo "Este tipo de senha não é permetido";
-    //     }
-        
-    //     $findUser = $this->entityManager->getRepository(Usuario::class)->find($email);
-
-    //     if ($findUser) {
-    //         echo "Este usuário já possui conta no sistema";
-    //         header('Location: /courses-admin/public/login', true, 302);
-    //         return;
-    //     } else {
-    //         $this->setUser($email, $hash);
-    //     }
-
-    //     header('Location: /courses-admin/public/login', true, 302);
-    // }
-
     public function validatePass($senha): string
     {
         $validatePass = htmlspecialchars($senha);

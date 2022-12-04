@@ -29,21 +29,4 @@ class DeleteController implements RequestHandlerInterface
 
         return new Response(200, ['Location' => '/courses-admin/public/listar-cursos']);
     }
-
-    // public function processRequest(): void
-    // {
-    //     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-
-    //     if ($id === false || is_null($id)) {
-    //         header('Location: /courses-admin/public/listar-cursos');
-    //         return;
-    //     }
-
-    //     $curso = $this->entityManager->getReference(Curso::class, $id);
-        
-    //     $this->entityManager->remove($curso);
-    //     $this->entityManager->flush();
-    //     header('Location: /courses-admin/public/listar-cursos', true, 302);
-    // }
-
 }

@@ -24,15 +24,4 @@ class LoginFormController extends HtmlController implements RequestHandlerInterf
 
         return $response;
     }
-
-    // public function processRequest(): void
-    // {
-    //     echo $this->renderHtml('login/formulario.php', [
-    //         'can_show_alerts' => false,
-    //         'show_header' => false,
-    //         'show_title' => false,
-    //         'titulo' => 'Login',
-    //         'documentTitle' => 'Login',
-    //     ]);
-    // }
 }
