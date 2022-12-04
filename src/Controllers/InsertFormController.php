@@ -3,8 +3,7 @@
 namespace Alura\Cursos\Controllers;
 
 use Alura\Cursos\Controllers\HtmlController;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Nyholm\Psr7\Response;
 
