@@ -26,9 +26,10 @@ class UpdateController extends HTMLController implements IControllerRequest
         }
 
         $curso = $this->coursesRepository->find($id);
-        $titulo = 'Alterar Curso' . " " . $curso->getDescricao($id);
+        $titulo = 'Alterar curso' . " " . $curso->getDescricao($id);
 
         echo $this->renderHtml('cursos/formulario.php', [
+            'curso' => $curso,
             'can_show_alerts' => true,
             'show_header' => true,
             'show_title' => true,

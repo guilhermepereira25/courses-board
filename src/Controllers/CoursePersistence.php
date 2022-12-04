@@ -3,12 +3,15 @@
 namespace Alura\Cursos\Controllers;
 
 use Alura\Cursos\Entity\Curso;
+use Alura\Cursos\Helper\DefineMessage;
 use Alura\Cursos\Infra\EntityManagerCreator;
 use Alura\Cursos\Interfaces\IControllerRequest;
 use Exception;
 
 class CoursePersistence implements IControllerRequest
 {
+    use DefineMessage;
+
     private $entityManager;
 
     public function __construct()
@@ -22,15 +25,15 @@ class CoursePersistence implements IControllerRequest
 
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
+        $type = 'success';
+
         if ($id) {
             $this->update($descricao, $id);
-            $_SESSION['message'] = 'Curso atualizado com sucesso';
+            $this->defineMessage($type, 'Curso atualizado com sucesso');
         } else {
             $this->setCurso($descricao);
-            $_SESSION['message'] = 'Curso inserido com sucesso';
+            $this->defineMessage($type, 'Curso inserido com sucesso');
         }
-
-        $_SESSION['message_type'] = 'success';
         
         header('Location: /courses-admin/public/listar-cursos', true, 302);
     }

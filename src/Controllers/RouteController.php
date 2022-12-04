@@ -4,7 +4,7 @@ namespace Alura\Cursos\Controllers;
 
 class RouteController 
 {   
-    //cambiarra para redirecionar para cadastro
+    //gambiarra para redirecionar para cadastro
     public static function validateRoutes($requestUri)
     {
         $isLoginRoute = str_contains($requestUri, 'login');
