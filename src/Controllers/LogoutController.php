@@ -2,13 +2,17 @@
 
 namespace Alura\Cursos\Controllers;
 
-use Alura\Cursos\Interfaces\IControllerRequest;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use Nyholm\Psr7\Response;
 
-class LogoutController implements IControllerRequest
+class LogoutController implements RequestHandlerInterface
 {
-    public function processRequest(): void
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         session_destroy();
-        header('Location: /courses-admin/public/login', true, 302);
+
+        return new Response(200, ['Location' => '/courses-admin/public/login']);
     }
 }

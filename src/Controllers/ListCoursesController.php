@@ -2,30 +2,56 @@
 
 namespace Alura\Cursos\Controllers;
 
-use Alura\Cursos\Interfaces\IControllerRequest;
 use Alura\Cursos\Entity\Curso;
-use Alura\Cursos\Infra\EntityManagerCreator;
+use Doctrine\ORM\EntityManagerInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use Nyholm\Psr7\Response;
 
-class ListCoursesController extends HtmlController implements IControllerRequest
+class ListCoursesController extends HtmlController implements RequestHandlerInterface
 {
-    private $coursesRepository;
+    private $entityManager;
 
-    public function __construct()
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $entityManager = (new EntityManagerCreator())->getEntityManager();
-        $this->coursesRepository = $entityManager->getRepository(Curso::class);
-      
+        $this->entityManager = $entityManager;
     }
 
-    public function processRequest(): void
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        echo $this->renderHtml('cursos/listar-cursos.php', [
-            'cursos' => $this->coursesRepository->findAll(),
+        $cursos = $this->entityManager->getRepository(Curso::class);
+
+        $html = $this->renderHtml('cursos/listar-cursos.php', [
+            'cursos' => $cursos->findAll(),
             'can_show_alerts' => true,
             'show_header' => true,
             'show_title' => true,
             'titulo' => 'Lista de cursos',
             'documentTitle' => 'Lista de cursos'
         ]);
+
+        $response = new Response(200, [], $html);
+
+        return $response;
     }
+
+    // public function __construct()
+    // {
+    //     $entityManager = (new EntityManagerCreator())->getEntityManager();
+    //     $this->coursesRepository = $entityManager->getRepository(Curso::class);
+      
+    // }
+
+    // public function processRequest(): void
+    // {
+    //     echo $this->renderHtml('cursos/listar-cursos.php', [
+    //         'cursos' => $this->coursesRepository->findAll(),
+    //         'can_show_alerts' => true,
+    //         'show_header' => true,
+    //         'show_title' => true,
+    //         'titulo' => 'Lista de cursos',
+    //         'documentTitle' => 'Lista de cursos'
+    //     ]);
+    // }
 }

@@ -2,39 +2,70 @@
 
 namespace Alura\Cursos\Controllers;
 
-use Alura\Cursos\Interfaces\{IControllerRequest, IPasswordValidate};
-use Alura\Cursos\Infra\EntityManagerCreator;
+use Alura\Cursos\Interfaces\IPasswordValidate;
 use Alura\Cursos\Entity\Usuario;
+use Doctrine\ORM\EntityManagerInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use Nyholm\Psr7\Response;
 
-class LoginController implements IControllerRequest, IPasswordValidate
+class LoginController implements RequestHandlerInterface, IPasswordValidate
 {
-    private $usersRepository;
+    private $entityManager;
 
-    public function __construct()
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $entityManager = (new EntityManagerCreator())->getEntityManager();
-        $this->usersRepository = $entityManager->getRepository(Usuario::class);
+        $this->entityManager = $entityManager;
     }
 
-    public function processRequest(): void
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $post = $request->getParsedBody();
 
-        $senha = filter_input(INPUT_POST, 'senha');
+        $email = filter_var($post['email'], FILTER_VALIDATE_EMAIL);
+        $senha = filter_var($post['senha']);
 
         $validatePass = $this->validatePass($senha);
 
-        $user = $this->usersRepository->findOneBy(['email' => $email]);
+        $user = $this->entityManager->getRepository(Usuario::class);
+        $user->findOneBy(['email' => $email]);
 
-        if (!$user || !$user->senhaEstaCorreta($validatePass)) {
+        if (!$user && !$user->senhaEstaCorreta($validatePass)) {
             echo "Email ou senha inválidos";
-            return;
+            return new Response(200, ['Location' => '/courses-admin/public/login']);
         }
 
         $_SESSION['logged'] = true;
 
-        header('Location: /courses-admin/public/listar-cursos', true, 302); 
+        return new Response(200, ['Location' => '/courses-admin/public/listar-cursos']);
     }
+
+    // public function __construct()
+    // {
+    //     $entityManager = (new EntityManagerCreator())->getEntityManager();
+    //     $this->usersRepository = $entityManager->getRepository(Usuario::class);
+    // }
+
+    // public function processRequest(): void
+    // {
+    //     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+
+    //     $senha = filter_input(INPUT_POST, 'senha');
+
+    //     $validatePass = $this->validatePass($senha);
+
+    //     $user = $this->usersRepository->findOneBy(['email' => $email]);
+
+    //     if (!$user || !$user->senhaEstaCorreta($validatePass)) {
+    //         echo "Email ou senha inválidos";
+    //         return;
+    //     }
+
+    //     $_SESSION['logged'] = true;
+
+    //     header('Location: /courses-admin/public/listar-cursos', true, 302); 
+    // }
 
     public function validatePass($senha): string
     {
