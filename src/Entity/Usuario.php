@@ -2,6 +2,8 @@
 
 namespace Alura\Cursos\Entity;
 
+use DateTime;
+
 /**
  * @Entity
  * @Table(name="usuarios")
@@ -23,6 +25,8 @@ class Usuario
      */
     private $senha;
 
+    private DateTime $created_at;
+
     public function senhaEstaCorreta(string $senhaPura): bool
     {
         return password_verify($senhaPura, $this->senha);
@@ -36,5 +40,10 @@ class Usuario
     public function setSenha($senha)
     {
         $this->senha = $senha;
+    }
+
+    public function setCreatedAt(): void
+    {
+        $this->created_at = new DateTime("now");
     }
 }

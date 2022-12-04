@@ -6,7 +6,7 @@
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card bg-info text-white" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
-                        <div class="mb-md-5 mt-md-4 pb-3">
+                        <div class="mb-md-3 mt-md-4 pb-2">
 
                             <h2 class="fw-bold mb-2 text-uppercase">SING UP</h2>
                             <p class="text-body-50 mb-5">Please enter your login and password!</p>
@@ -32,7 +32,7 @@
                         <span id="senha-incorreta-alert"></span>
 
                         <div>
-                            <p class="text-body mb-0 mt-3">Já possui conta? <a href="login" class="text-white fw-bold">Login</a>
+                            <p class="text-body mb-1 mt-4">Já possui conta? <a href="login" class="text-white fw-bold">Login</a>
                             </p>
                         </div>
                     </div>

@@ -35,13 +35,9 @@ class CadastroController extends HtmlController implements IControllerRequest, I
             echo "Este usuário já possui conta no sistema";
             header('Location: /courses-admin/public/login', true, 302);
             return;
+        } else {
+            $this->setUser($email, $hash);
         }
-        
-        $user = new Usuario();
-        $user->setEmail($email);
-        $user->setSenha($hash);
-        $this->entityManager->persist($user);
-        $this->entityManager->flush();
 
         header('Location: /courses-admin/public/login', true, 302);
     }
@@ -51,5 +47,15 @@ class CadastroController extends HtmlController implements IControllerRequest, I
         $validatePass = htmlspecialchars($senha);
 
         return $validatePass;
+    }
+
+    private function setUser($email, $hash): void
+    {
+        $user = new Usuario();
+        $user->setEmail($email);
+        $user->setSenha($hash);
+        $user->setCreatedAt();
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
     }
 }
