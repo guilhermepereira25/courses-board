@@ -2,8 +2,8 @@
 
 namespace  Application\Source\Controllers;
 
-use  Application\Source\Entity\Usuario;
-use  Application\Source\Interfaces\IPasswordValidate;
+use Application\Source\Entity\Usuario;
+use Application\Source\Interfaces\IPasswordValidate;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;

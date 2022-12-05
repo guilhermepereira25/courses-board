@@ -2,7 +2,7 @@
 
 namespace  Application\Source\Controllers;
 
-use  Application\Source\Controllers\HtmlController;
+use Application\Source\Controllers\HtmlController;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Nyholm\Psr7\Response;

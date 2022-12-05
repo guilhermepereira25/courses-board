@@ -2,8 +2,8 @@
 
 namespace  Application\Source\Controllers;
 
-use  Application\Source\Entity\Curso;
-use  Application\Source\Helper\DefineMessage;
+use Application\Source\Entity\Curso;
+use Application\Source\Helper\DefineMessage;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};

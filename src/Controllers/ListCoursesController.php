@@ -2,7 +2,7 @@
 
 namespace  Application\Source\Controllers;
 
-use  Application\Source\Entity\Curso;
+use Application\Source\Entity\Curso;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;
