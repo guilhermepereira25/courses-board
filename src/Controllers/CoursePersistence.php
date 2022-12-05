@@ -1,9 +1,9 @@
 <?php
 
-namespace Alura\Cursos\Controllers;
+namespace  Application\Source\Controllers;
 
-use Alura\Cursos\Entity\Curso;
-use Alura\Cursos\Helper\DefineMessage;
+use  Application\Source\Entity\Curso;
+use  Application\Source\Helper\DefineMessage;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};

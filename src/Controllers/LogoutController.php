@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Cursos\Controllers;
+namespace  Application\Source\Controllers;
 
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;

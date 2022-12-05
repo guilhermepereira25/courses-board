@@ -1,9 +1,9 @@
 <?php
 
-namespace Alura\Cursos\Controllers;
+namespace  Application\Source\Controllers;
 
-use Alura\Cursos\Entity\Usuario;
-use Alura\Cursos\Interfaces\IPasswordValidate;
+use  Application\Source\Entity\Usuario;
+use  Application\Source\Interfaces\IPasswordValidate;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;

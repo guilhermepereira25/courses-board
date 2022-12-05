@@ -1,7 +1,7 @@
 <?php
 
 use Doctrine\ORM\EntityManagerInterface;
-use Alura\Cursos\Infra\EntityManagerCreator;
+use  Application\Source\Infra\EntityManagerCreator;
 use DI\ContainerBuilder;
 
 $builder = new ContainerBuilder();

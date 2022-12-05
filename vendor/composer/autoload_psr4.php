@@ -41,5 +41,5 @@ return array(
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/src', $vendorDir . '/doctrine/event-manager/src'),
     'DI\\' => array($vendorDir . '/php-di/php-di/src'),
-    'Alura\\Cursos\\' => array($baseDir . '/src'),
+    'Application\\Source\\' => array($baseDir . '/src'),
 );

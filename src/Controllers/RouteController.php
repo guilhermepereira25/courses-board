@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Cursos\Controllers;
+namespace  Application\Source\Controllers;
 
 class RouteController 
 {   

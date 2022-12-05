@@ -1,6 +1,6 @@
 <?php
 
-use Alura\Cursos\Infra\EntityManagerCreator;
+use  Application\Source\Infra\EntityManagerCreator;
 
 require_once __DIR__ . '/vendor/autoload.php';
 

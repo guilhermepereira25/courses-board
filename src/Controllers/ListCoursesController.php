@@ -1,8 +1,8 @@
 <?php 
 
-namespace Alura\Cursos\Controllers;
+namespace  Application\Source\Controllers;
 
-use Alura\Cursos\Entity\Curso;
+use  Application\Source\Entity\Curso;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;

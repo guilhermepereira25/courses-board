@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Cursos\Helper;
+namespace  Application\Source\Helper;
 
 trait DefineMessage
 {

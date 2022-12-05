@@ -1,12 +1,12 @@
 <?php
 
-namespace Alura\Cursos\Controllers;
+namespace  Application\Source\Controllers;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Nyholm\Psr7\Response;
-use Alura\Cursos\Entity\Curso;
+use  Application\Source\Entity\Curso;
 
 class GetCourses implements RequestHandlerInterface
 {
@@ -21,6 +21,6 @@ class GetCourses implements RequestHandlerInterface
     {
         $cursos = $this->coursesRepository->findAll();
 
-        return new Response(200, [], json_encode($cursos));
+        return new Response(200, ['Content-Type' => 'application/json'], json_encode($cursos));
     }
 }

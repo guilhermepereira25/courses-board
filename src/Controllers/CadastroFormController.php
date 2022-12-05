@@ -1,8 +1,8 @@
 <?php
 
-namespace Alura\Cursos\Controllers;
+namespace  Application\Source\Controllers;
 
-use Alura\Cursos\Controllers\HtmlController;
+use  Application\Source\Controllers\HtmlController;
 use Psr\Http\Message\{ServerRequestInterface, ResponseInterface};
 use Psr\Http\Server\RequestHandlerInterface;
 use Nyholm\Psr7\Response;

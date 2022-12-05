@@ -1,6 +1,6 @@
 <?php
 
-use Alura\Cursos\Controllers\{
+use  Application\Source\Controllers\{
     CadastroController,
     InsertFormController, 
     ListCoursesController, 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Cursos\Interfaces;
+namespace  Application\Source\Interfaces;
 
 interface IControllerRequest 
 {

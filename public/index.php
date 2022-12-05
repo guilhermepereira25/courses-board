@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Alura\Cursos\Controllers\{
+use  Application\Source\Controllers\{
     InsertFormController, 
     ListCoursesController, 
     CoursePersistence, 

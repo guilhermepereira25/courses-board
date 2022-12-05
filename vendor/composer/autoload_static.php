@@ -77,7 +77,7 @@ class ComposerStaticInitcd301f13abd38a4672d0a56c2250b7f8
         ),
         'A' => 
         array (
-            'Alura\\Cursos\\' => 13,
+            'Application\\Source\\' => 19,
         ),
     );
 
@@ -224,7 +224,7 @@ class ComposerStaticInitcd301f13abd38a4672d0a56c2250b7f8
         array (
             0 => __DIR__ . '/..' . '/php-di/php-di/src',
         ),
-        'Alura\\Cursos\\' => 
+        'Application\\Source\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
