@@ -16,7 +16,7 @@ class EntityManagerCreator
         $dbParams = array(
             'host' => 'localhost',
             'user' => 'root',
-            'password' => 'Gui@250802',
+            'password' => '',
             'dbname' => 'courses',
             'charset' => 'UTF8',
             'driver' => 'pdo_mysql'
